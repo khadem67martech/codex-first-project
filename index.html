@@ -11,7 +11,7 @@
       <h1>ROAS Calculator</h1>
       <p class="subtitle">Add channel performance rows and compare ROAS instantly.</p>
 
-      <!-- Simple form for channel, cost, and revenue inputs -->
+      <!-- Form for adding a new row -->
       <form id="roas-form" class="form" novalidate>
         <label for="channel">Channel</label>
         <input id="channel" name="channel" type="text" placeholder="e.g. Google Ads" required />
@@ -25,11 +25,16 @@
         <button type="submit">Add row</button>
       </form>
 
-      <!-- Validation and status message area -->
+      <!-- Inline validation / status text (no alerts) -->
       <p id="message" class="message" aria-live="polite"></p>
 
-      <!-- Table that shows each added channel row and its ROAS -->
       <section class="table-section">
+        <div class="table-actions">
+          <button id="sort-button" type="button">Sort by ROAS: Desc</button>
+          <button id="copy-summary" type="button">Copy Summary</button>
+          <button id="export-csv" type="button">Export CSV</button>
+        </div>
+
         <table>
           <thead>
             <tr>
@@ -37,17 +42,25 @@
               <th>Cost</th>
               <th>Revenue</th>
               <th>ROAS</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody id="rows-body">
             <tr id="empty-row">
-              <td colspan="4">No rows yet. Add your first channel above.</td>
+              <td colspan="5">No rows yet. Add your first channel above.</td>
             </tr>
           </tbody>
         </table>
+
+        <!-- Totals required under the table -->
+        <div class="totals">
+          <p><strong>Total Cost:</strong> <span id="total-cost">0.00</span></p>
+          <p><strong>Total Revenue:</strong> <span id="total-revenue">0.00</span></p>
+          <p><strong>Overall ROAS:</strong> <span id="overall-roas">0.00</span></p>
+        </div>
       </section>
 
-      <!-- Summary area for best and worst channels -->
+      <!-- Existing best/worst summary -->
       <section class="summary">
         <h2>Summary</h2>
         <p><strong>Best channel:</strong> <span id="best-channel">N/A</span></p>
