@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 780px;
+  max-width: 860px;
   margin: 2rem auto;
   padding: 1.5rem;
   background: #ffffff;
@@ -32,25 +32,48 @@ h1 {
 }
 
 .form input,
-.form button {
+.form button,
+.table-actions button,
+td button {
   padding: 0.65rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   border-radius: 6px;
 }
 
-.form input {
+.form input,
+.inline-input {
   border: 1px solid #cbd5e1;
 }
 
-.form button {
+.form button,
+.table-actions button,
+td button {
   border: none;
   background: #2563eb;
   color: #fff;
   cursor: pointer;
 }
 
-.form button:hover {
+.form button:hover,
+.table-actions button:hover,
+td button:hover {
   background: #1d4ed8;
+}
+
+.delete-btn {
+  background: #dc2626;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+.cancel-btn {
+  background: #6b7280;
+}
+
+.cancel-btn:hover {
+  background: #4b5563;
 }
 
 .message {
@@ -61,6 +84,13 @@ h1 {
 
 .table-section {
   overflow-x: auto;
+}
+
+.table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 table {
@@ -77,6 +107,31 @@ td {
 
 th {
   background: #f3f4f6;
+}
+
+td button {
+  margin-right: 0.4rem;
+  padding: 0.4rem 0.55rem;
+}
+
+.inline-input {
+  width: 100%;
+  padding: 0.45rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.totals {
+  margin-top: 0.85rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+.totals p,
+.summary p {
+  margin: 0.4rem 0;
 }
 
 .summary {
