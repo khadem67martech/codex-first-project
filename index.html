@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROAS Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>ROAS Calculator</h1>
+      <p class="subtitle">Add channel performance rows and compare ROAS instantly.</p>
+
+      <!-- Simple form for channel, cost, and revenue inputs -->
+      <form id="roas-form" class="form" novalidate>
+        <label for="channel">Channel</label>
+        <input id="channel" name="channel" type="text" placeholder="e.g. Google Ads" required />
+
+        <label for="cost">Cost</label>
+        <input id="cost" name="cost" type="number" min="0.01" step="0.01" placeholder="e.g. 1000" required />
+
+        <label for="revenue">Revenue</label>
+        <input id="revenue" name="revenue" type="number" min="0" step="0.01" placeholder="e.g. 2500" required />
+
+        <button type="submit">Add row</button>
+      </form>
+
+      <!-- Validation and status message area -->
+      <p id="message" class="message" aria-live="polite"></p>
+
+      <!-- Table that shows each added channel row and its ROAS -->
+      <section class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Cost</th>
+              <th>Revenue</th>
+              <th>ROAS</th>
+            </tr>
+          </thead>
+          <tbody id="rows-body">
+            <tr id="empty-row">
+              <td colspan="4">No rows yet. Add your first channel above.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Summary area for best and worst channels -->
+      <section class="summary">
+        <h2>Summary</h2>
+        <p><strong>Best channel:</strong> <span id="best-channel">N/A</span></p>
+        <p><strong>Worst channel:</strong> <span id="worst-channel">N/A</span></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
