@@ -347,3 +347,18 @@ exportCsvButton.addEventListener('click', () => {
 
 // Initial render.
 renderAll();
+
+const API_URL = "https://script.google.com/macros/s/AKfycbyP1gIcCAxjQFSrvAJom1qGrIzJH1WTuip75tuRQ0OfRD9dorU55f0uplfIZEc2Ei0/exec";
+
+async function saveTaskToSheet(title) {
+  await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify({
+      title: title,
+      status: "Todo"
+    })
+  });
+}
